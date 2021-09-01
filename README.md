@@ -15,4 +15,11 @@
    
 2. clean up the directory (rm -fr .git/) and try again
    - also need to read Analytics Vidhya medium post more closely
-   
+   - all good *except* needed to create the repo on Github (doh!)
+   - that didn't work becauses I accepted a license; i need to
+     practice with a throwaway name (gah!)
+
+2.1. test run with throwaway name foobar1 works as documented by AV.
+   - 'git push --set-upstream origin main' worked w/ cscCommons; so
+     maybe we are good to go.
+
