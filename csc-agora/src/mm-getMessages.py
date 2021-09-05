@@ -46,7 +46,7 @@ def printField(ele, prefix):
         print (split[len(split)-1], ":", ele)
     elif('message' in prefix):
         split = prefix.split(sep='.')
-        print (split[len(split)-1], ":", ele)
+        print (split[len(split)-1], ":", ele, '\n')
 
 def main():
     
