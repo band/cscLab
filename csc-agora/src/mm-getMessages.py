@@ -38,9 +38,12 @@ def checkDict(jsonObject, prefix):
         elif (isinstance(jsonObject[ele], str)):
             printField(jsonObject[ele],  prefix+"."+ele)
 
+# print Field only if prefix contains "user_id"
 def printField(ele, prefix):
-    print (prefix, ":" , ele)
-
+    if('user_id' in prefix):
+#        print (prefix, ":" , ele)
+        split = prefix.split(sep='.')
+        print (split[len(split)-1], ":", ele)
 
 def main():
     
