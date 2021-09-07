@@ -8,7 +8,7 @@ import os
 import json
 
 mm_token = os.environ['MM_PAT']
-user_id = "3bd6chmxx3dzfcbydcck31gpzw"
+user_id = "snk7nfmfdfnffqeugqcxygf5th"
 
 def mm_user_record(user_id, mm_token):
     r = requests.get(
@@ -45,8 +45,8 @@ def printField(ele, prefix):
 def main():
     
     try:
-       user_info= mm_user_record(user_id, mm_token)
-       data = json.loads(json.dumps(user_info))
+       data = mm_user_record(user_id, mm_token)
+#       data = json.loads(json.dumps(user_info))
        for element in data:
            if (isinstance(data[element], dict)):
                checkDict(data[element], element)

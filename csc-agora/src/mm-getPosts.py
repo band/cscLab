@@ -8,7 +8,8 @@ import os
 import json
 
 mm_token = os.environ['MM_PAT']
-channel_id = 'oq1nxzpozjygdke8szx47m3p8y'
+channel_id1 = 'oq1nxzpozjygdke8szx47m3p8y'
+channel_id2 = '3bd6chmxx3dzfcbydcck31gpzw'
 
 def mm_channel_posts(channel_id, mm_token):
     r = requests.get(
@@ -45,7 +46,7 @@ def printField(ele, prefix):
 def main():
     
     try:
-       posts = mm_channel_posts(channel_id, mm_token)
+       posts = mm_channel_posts(channel_id2, mm_token)
        data = json.loads(json.dumps(posts))
        for element in data:
            if (isinstance(data[element], dict)):

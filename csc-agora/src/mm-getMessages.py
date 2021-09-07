@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 
-# http REST API use
+# Mattermost http API use: print user_id and messages from a channel
 
 import traceback
-import requests
 import os
+import requests
 import json
 
 mm_token = os.environ['MM_PAT']
@@ -17,49 +17,13 @@ def mm_channel_posts(channel_id, mm_token):
     )
     return r.json()
 
-# 3 fns copied from https://www.codementor.io/@simransinghal/working-with-json-data-in-python-165crbkiyk
-#   for parsing nested json data
-
-def checkList(ele, prefix):
-    for i in range(len(ele)):
-        if (isinstance(ele[i], list)):
-            checkList(ele[i], prefix+"["+str(i)+"]")
-        elif (isinstance(ele[i], str)):
-            printField(ele[i], prefix+"["+str(i)+"]")
-        else:
-            checkDict(ele[i], prefix+"["+str(i)+"]")
-
-def checkDict(jsonObject, prefix):
-    for ele in jsonObject:
-        if (isinstance(jsonObject[ele], dict)):
-            checkDict(jsonObject[ele], prefix+"."+ele)
-        elif (isinstance(jsonObject[ele], list)):
-            checkList(jsonObject[ele], prefix+"."+ele)
-        elif (isinstance(jsonObject[ele], str)):
-            printField(jsonObject[ele],  prefix+"."+ele)
-
-# print Field only for 'user_id' and 'message'
-def printField(ele, prefix):
-#        print (prefix, ":" , ele)
-    if('user_id' in prefix):
-        split = prefix.split(sep='.')
-        print (split[len(split)-1], ":", ele)
-    elif('message' in prefix):
-        split = prefix.split(sep='.')
-        print (split[len(split)-1], ":", ele, '\n')
-
 def main():
     
     try:
        posts = mm_channel_posts(channel_id, mm_token)
        data = json.loads(json.dumps(posts))
-       for element in data:
-           if (isinstance(data[element], dict)):
-               checkDict(data[element], element)
-           elif (isinstance(data[element], list)):
-               checkList(data[element], element)
-           elif (isinstance(data[element], str)):
-               printField(data[element], element)
+       for p in data["posts"].values():
+           print(p["user_id"], ": ", p["message"], '\n')
 
     except Exception as e:
         traceback.print_exc(e)
