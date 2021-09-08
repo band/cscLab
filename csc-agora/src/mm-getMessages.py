@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# Mattermost http API use: print user_id and messages from a channel
+# Mattermost http API use: print usernames and messages from a channel
 
 import traceback
 import os
