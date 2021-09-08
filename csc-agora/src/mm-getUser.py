@@ -46,7 +46,6 @@ def main():
     
     try:
        data = mm_user_record(user_id, mm_token)
-#       data = json.loads(json.dumps(user_info))
        for element in data:
            if (isinstance(data[element], dict)):
                checkDict(data[element], element)
