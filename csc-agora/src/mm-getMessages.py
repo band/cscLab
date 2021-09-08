@@ -26,8 +26,7 @@ def mm_user_record(user_id, mm_token):
 
 def main():
     try:
-       posts = mm_channel_posts(channel_id, mm_token)
-       data = json.loads(json.dumps(posts))
+       data = mm_channel_posts(channel_id, mm_token)
        for p in data["posts"].values():
            ur = mm_user_record(p["user_id"], mm_token)
            print(ur["username"], ": ", p["message"], '\n')
