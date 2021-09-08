@@ -17,13 +17,20 @@ def mm_channel_posts(channel_id, mm_token):
     )
     return r.json()
 
+def mm_user_record(user_id, mm_token):
+    r = requests.get(
+        f"https://chat.collectivesensecommons.org/api/v4/users/{user_id}",
+        headers={'Authorization': f'Bearer {mm_token}'}
+    )
+    return r.json()
+
 def main():
-    
     try:
        posts = mm_channel_posts(channel_id, mm_token)
        data = json.loads(json.dumps(posts))
        for p in data["posts"].values():
-           print(p["user_id"], ": ", p["message"], '\n')
+           ur = mm_user_record(p["user_id"], mm_token)
+           print(ur["username"], ": ", p["message"], '\n')
 
     except Exception as e:
         traceback.print_exc(e)
