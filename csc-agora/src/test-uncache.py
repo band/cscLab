@@ -25,20 +25,15 @@ def mm_user_record(user_id, mm_token):
     return r.json()
 
 def main():
-    # uns = {'user_id':'username'}
+    # unames = { 'user_id' : user_record }
     unames = {}
     try:
         data = mm_channel_posts(channel_id, mm_token)
-        c = 0
         for p in data["posts"].values():
-            if p["user_id"] in unames.keys():
-                print("POST: USER_RECORD: ", unames[p["user_id"]])
-            else:
+            if p["user_id"] not in unames.keys():
                 unames[p["user_id"]] = mm_user_record(p["user_id"], mm_token)
-                c += 1
-            print(unames[p['user_id']].get("username"))
-        print("count: ", c)
-        
+            print(unames[p['user_id']].get("username"), ": ", p["message"], '\n')
+
     except Exception as e:
         traceback.print_exc(e)
 
