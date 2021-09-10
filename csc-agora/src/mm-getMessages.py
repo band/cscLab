@@ -25,11 +25,14 @@ def mm_user_record(user_id, mm_token):
     return r.json()
 
 def main():
+    # ur = { 'user_id' : user_record }
+    ur = {}
     try:
        data = mm_channel_posts(channel_id, mm_token)
        for p in data["posts"].values():
-           ur = mm_user_record(p["user_id"], mm_token)
-           print(ur["username"], ": ", p["message"], '\n')
+           if p["user_id"] not in ur.keys():
+               ur[p["user_id"]] = mm_user_record(p["user_id"], mm_token)
+           print(ur[p["user_id"]].get("username"), ": ", p["message"], '\n')
 
     except Exception as e:
         traceback.print_exc(e)
