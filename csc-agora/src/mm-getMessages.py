@@ -20,14 +20,6 @@ def init_argparse():
     parser.add_argument('--channel', '-c', required=True, help='(partial) channel name')
     return parser
 
-# get channel records for a given MM team ID
-def mm_channel_records(mm_teamid, mm_token):
-    r = requests.get(
-        f"https://chat.collectivesensecommons.org/api/v4/teams/{mm_teamid}/channels",
-        headers={'Authorization': f'Bearer {mm_token}'}
-    )
-    return r.json()
-
 # get channel [id, display_name] list for a given MM team ID, and (partial) channel name;
 #    if more than 1 channel name matches, return the last match.
 def mm_channel_id(ch_name, mm_teamid, mm_token):
