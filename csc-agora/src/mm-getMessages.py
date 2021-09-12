@@ -2,14 +2,34 @@
 
 # Mattermost http API use: print usernames and messages from a channel
 
-import traceback
+import argparse
+import json
 import os
 import requests
-import json
+import traceback
 
+# Mattermost server access token required
 mm_token = os.environ['MM_PAT']
+
+# Collective Sense Commons Mattermost Team 'Agora' ID
+mm_teamid = 'yzebbrg9njfkdyt74a6kh69qke'
 channel_id = 'oq1nxzpozjygdke8szx47m3p8y'
 
+# set up argparse
+def init_argparse():
+    parser = argparse.ArgumentParser(description='Retrieve usernames and messages from a channel.')
+    parser.add_argument('--channel', '-c', required=True, help='(partial) channel name')
+    return parser
+
+# get channel records for a given MM team ID
+def mm_channel_records(mm_teamid, mm_token):
+    r = requests.get(
+        f"https://chat.collectivesensecommons.org/api/v4/teams/{mm_teamid}/channels",
+        headers={'Authorization': f'Bearer {mm_token}'}
+    )
+    return r.json()
+
+# get channel posts for a specified channel_id
 def mm_channel_posts(channel_id, mm_token):
     r = requests.get(
         f"https://chat.collectivesensecommons.org/api/v4/channels/{channel_id}/posts",
@@ -17,6 +37,7 @@ def mm_channel_posts(channel_id, mm_token):
     )
     return r.json()
 
+# get user record for a specified user_id
 def mm_user_record(user_id, mm_token):
     r = requests.get(
         f"https://chat.collectivesensecommons.org/api/v4/users/{user_id}",
@@ -25,10 +46,20 @@ def mm_user_record(user_id, mm_token):
     return r.json()
 
 def main():
-    # ur = { 'user_id' : user_record }
+    argparser = init_argparse();
+    args = argparser.parse_args();
+    ch_name = args.channel.casefold()    # (partial) channel name - lowercase
+
+    # ur = { 'user_id' : user_record } # cache user records
     ur = {}
     try:
-       data = mm_channel_posts(channel_id, mm_token)
+       data = mm_channel_records(mm_teamid, mm_token)
+       for i in range(len(data)):
+           if ch_name in data[i].get('display_name').casefold():
+               ch_id = data[i].get('id')
+               print("*", ch_name,  data[i].get('id'), '\n')
+        
+       data = mm_channel_posts(ch_id, mm_token)
        for p in data["posts"].values():
            if p["user_id"] not in ur.keys():
                ur[p["user_id"]] = mm_user_record(p["user_id"], mm_token)
