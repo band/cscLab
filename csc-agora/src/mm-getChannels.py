@@ -37,12 +37,11 @@ def mm_channel_posts(channel_id, mm_token):
 def main():
     argparser = init_argparse();
     args = argparser.parse_args();
-    ch_name = args.channel    # (partial) channel name
-
+    ch_name = args.channel.casefold()    # (partial) channel name - lowercase
     try:
        data = mm_channel_records(mm_teamid, mm_token)
        for i in range(len(data)):
-           if ch_name in data[i].get('display_name'):
+           if ch_name in data[i].get('display_name').casefold():
                print("*", ch_name,  data[i].get('id'), '\n')
        
     except Exception as e:
