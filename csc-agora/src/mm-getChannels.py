@@ -33,14 +33,8 @@ def main():
     try:
        data = mm_channel_records(mm_teamid, mm_token)
        for i in range(len(data)):
-           cids[data[i].get('display_name')] = data[i].get('id')
-       print(cids, '\n')
-       for i in range(len(data)):
            if ch_name in data[i].get('display_name'):
                print("*", ch_name,  data[i].get('id'), '\n')
-#       for cn in cids.keys():
-#           if ch_name in cn:
-#               print(ch_name, cids[cn], '\n')
        
     except Exception as e:
         traceback.print_exc(e)
