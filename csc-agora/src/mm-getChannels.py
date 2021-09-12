@@ -2,6 +2,7 @@
 
 # Mattermost http API use: get channel names and ids
 
+import argparse
 import json
 import os
 import requests
@@ -12,6 +13,12 @@ mm_token = os.environ['MM_PAT']
 
 # Collective Sense Commons Mattermost Team 'Agora' ID
 mm_teamid = 'yzebbrg9njfkdyt74a6kh69qke'
+
+# set up argparse
+def init_argparse():
+    parser = argparse.ArgumentParser(description='Retrieve usernames and messages from a channel.')
+    parser.add_argument('--channel', '-c', required=True, help='(partial) channel name')
+    return parser
 
 def mm_channel_records(mm_teamid, mm_token):
     r = requests.get(
@@ -28,8 +35,10 @@ def mm_channel_posts(channel_id, mm_token):
     return r.json()
 
 def main():
+    argparser = init_argparse();
+    args = argparser.parse_args();
+    ch_name = args.channel    # (partial) channel name
     ch_name = "OGM"
-    cids = {}     # cids = { channel_display_name : channel_id }
     try:
        data = mm_channel_records(mm_teamid, mm_token)
        for i in range(len(data)):
