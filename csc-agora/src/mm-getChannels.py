@@ -38,7 +38,7 @@ def main():
     argparser = init_argparse();
     args = argparser.parse_args();
     ch_name = args.channel    # (partial) channel name
-    ch_name = "OGM"
+
     try:
        data = mm_channel_records(mm_teamid, mm_token)
        for i in range(len(data)):
