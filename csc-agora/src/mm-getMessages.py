@@ -39,7 +39,7 @@ def mm_channel_id(ch_name, mm_teamid, mm_token):
     for i in range(len(data)):
         if ch_name in data[i].get('display_name').casefold():
             ch_id = [data[i].get('id'), data[i].get('display_name')]
-            print("* Found channel: ", ch_name,  data[i].get('id'), " ", data[i].get('display_name'), '\n')
+            print("* Found channel: ", ch_name,  data[i].get('id'), " ", data[i].get('display_name'))
     return ch_id
 
 # get channel posts for a specified channel_id
