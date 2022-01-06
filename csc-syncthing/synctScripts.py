@@ -22,7 +22,7 @@ pp=pprint.PrettyPrinter(indent=2)
 def main():
     try:
         events = st_events(st_apikey)
-        pp.pprint([x.get("data").get("filenames") for x in events if x.get("type") == 'LocalIndexUpdated'])
+        pp.pprint([tuple(x.get("data").get("filenames")) for x in events if x.get("type") == 'LocalIndexUpdated'])
 
     except Exception as e:
         traceback.print_exc(e)
