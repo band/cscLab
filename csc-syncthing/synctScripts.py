@@ -23,7 +23,8 @@ def main():
     try:
         events = st_events(st_apikey)
         tpls = [tuple(x.get("data").get("filenames")) for x in events if x.get("type") == 'LocalIndexUpdated']
-        pp.pprint([x for x in dict.fromkeys(tpls) if ".obsidian" not in x[0]])
+#        pp.pprint([x for x in dict.fromkeys(tpls) if ".obsidian" not in x[0]])
+        pp.pprint([x for x in dict.fromkeys(tpls) if x[0].endswith('.md')])
 
     except Exception as e:
         traceback.print_exc(e)
