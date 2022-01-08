@@ -17,7 +17,7 @@ def st_events(apikey):
     )
     return r.json()
 
-pp=pprint.PrettyPrinter(indent=0)
+pp=pprint.PrettyPrinter()
 
 def main():
     try:
