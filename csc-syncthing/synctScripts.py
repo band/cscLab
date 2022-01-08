@@ -17,16 +17,13 @@ def st_events(apikey):
     )
     return r.json()
 
-pp=pprint.PrettyPrinter(indent=2)
+pp=pprint.PrettyPrinter(indent=0)
 
 def main():
     try:
         events = st_events(st_apikey)
         tpls = [tuple(x.get("data").get("filenames")) for x in events if x.get("type") == 'LocalIndexUpdated']
         pp.pprint([x[0] for x in dict.fromkeys(tpls) if x[0].endswith('.md') and len(x) == 1])
-        for x in dict.fromkeys(tpls):
-            if ( x[0].endswith('.md') and len(x) == 1 ):
-                print(x[0])
         
     except Exception as e:
         traceback.print_exc(e)
