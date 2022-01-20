@@ -3,14 +3,17 @@
 # Syncthing http REST API use
 #  record new pages (recent changes)
 
+from datetime import datetime
 import json
 import os
 import platform
 import pprint
-import requests
 import traceback
 
-from datetime import datetime
+# `pip install requests`
+import requests
+
+# `pip install tinydb`
 from tinydb import TinyDB, Query
 
 st_apikey = os.environ['SYNCTHING_API_KEY']
