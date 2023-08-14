@@ -1,3 +1,11 @@
+"""
+!pip import easyllm
+
+QUESTIONS:
+- how to use models other than Llama2?
+- what is the relation between the prompt_builder and the ChatCompletion.create statements?
+- what are temperature AND top_p set; i thought the recommendation was one or the other?
+"""
 from easyllm.clients import huggingface
 
 # helper to build llama2 prompt
