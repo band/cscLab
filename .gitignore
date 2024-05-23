@@ -1,5 +1,6 @@
 # auth
 env.sh
+.env
 
 # macOS
 .DS_Store
@@ -12,6 +13,3 @@ env.sh
 venv/
 __pycache__/
 
-# Obsidian
-.obsidian/cache
-.trash/
