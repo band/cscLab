@@ -1,4 +1,4 @@
-
+# `pip install gitpython`
 import git
 
 repo = git.Repo("/Users/band/Sites/massivewiki/bandstands")
