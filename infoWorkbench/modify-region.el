@@ -47,4 +47,11 @@
 	    (end-of-line)
 	    (insert ".")
 	    (forward-line 1)))
+	(save-excursion
+	  (goto-char (point-min))
+	  (let ((line1 (buffer-substring-no-properties (line-beginning-position) (line-end-position)))
+		(line2 (progn (forward-line 1) (buffer-substring-no-properties (line-beginning-position) (line-end-position))))
+		(line3 (progn (forward-line 1) (buffer-substring-no-properties (line-beginning-position) (line-end-position)))))
+	    (delete-region (point-min) (progn (forward-line 1) (point)))
+	    (insert (concat line1 " " line2 " " line3 "\n"))))
       ))
