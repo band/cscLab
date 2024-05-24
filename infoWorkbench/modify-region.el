@@ -15,8 +15,9 @@
       (delete-region (point) (line-end-position)))
     (save-excursion
       (goto-char end)
-      (insert "\n" line3 "\n" line2))
+      (insert line2 "\n" line3))
     (save-excursion
       (goto-char start)
+      (flush-lines "^\\s-*$")
       (while (re-search-forward "\\*\\*" end t)
         (replace-match "")))))
