@@ -31,4 +31,8 @@
 		(line2 (progn (forward-line 1) (buffer-substring-no-properties (line-beginning-position) (line-end-position)))))
 	    (delete-region (point-min) (progn (forward-line 1) (point)))
 	    (insert (concat line1 line2 "\n"))))
+	(save-excursion
+	  (goto-char (point-min))
+	  (while (re-search-forward "\\(Author: \\|Title: \\|Publisher: \\)" nil t)
+	    (replace-match "")))
       ))
