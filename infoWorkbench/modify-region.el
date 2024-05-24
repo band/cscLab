@@ -20,4 +20,9 @@
       (goto-char start)
       (flush-lines "^\\s-*$")
       (while (re-search-forward "\\*\\*" end t)
-        (replace-match "")))))
+        (replace-match "")))
+      (save-excursion
+	(goto-char start)
+	(while (re-search-forward "^Year: \\([0-9]+\\)" nil t)
+	  (replace-match "(\\1)")))
+      ))
