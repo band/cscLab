@@ -35,4 +35,10 @@
 	  (goto-char (point-min))
 	  (while (re-search-forward "\\(Author: \\|Title: \\|Publisher: \\)" nil t)
 	    (replace-match "")))
+	(save-excursion
+	  (goto-char (point-min))
+	  (while (not (eobp))
+	    (end-of-line)
+	    (insert ".")
+	    (forward-line 1)))
       ))
