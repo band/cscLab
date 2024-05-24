@@ -39,6 +39,7 @@
 	  (goto-char (point-min))
 	  (while (not (eobp))
 	    (end-of-line)
+	    (delete-horizontal-space t)
 	    (insert ".")
 	    (forward-line 1)))
       ))
