@@ -22,8 +22,8 @@
       (while (re-search-forward "\\*\\*" end t)
         (replace-match "")))
       (save-excursion
-	(goto-char (point-min))
-	(while (not (eobp))
+	(goto-char start)
+	(while (and (< (point) end) (not (eobp)))
 	  (end-of-line)
 	  (delete-horizontal-space t)
 	  (forward-line 1)))
@@ -38,12 +38,12 @@
 	    (delete-region (point-min) (progn (forward-line 1) (point)))
 	    (insert (concat line1 " " line2 "\n"))))
 	(save-excursion
-	  (goto-char (point-min))
+	  (goto-char start)
 	  (while (re-search-forward "\\(Author: \\|Title: \\|Publisher: \\)" nil t)
 	    (replace-match "")))
 	(save-excursion
-	  (goto-char (point-min))
-	  (while (not (eobp))
+	  (goto-char start)
+	  (while (and (< (point) end) (not (eobp)))
 	    (end-of-line)
 	    (insert ".")
 	    (forward-line 1)))
