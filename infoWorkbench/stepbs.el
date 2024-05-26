@@ -23,5 +23,14 @@
       (while (re-search-forward "\\*\\*" end t)
         (replace-match ""))
       (widen))
+    (save-excursion
+      (save-restriction
+	(narrow-to-region start end)
+	(goto-char (point-min))
+	(while (and (< (point) end) (not (eobp)))
+	  (end-of-line)
+	  (delete-horizontal-space t)
+	  (forward-line 1))))
+
     )
   )
