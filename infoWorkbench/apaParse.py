@@ -3,6 +3,10 @@
 """
  apaParse: parse and print 'APAvar:' citations found in a specified Markdown file
  (this is a very specific use case for Bill Anderson
+ TODO: read filepath from command line
+ TODO: only read 'APAvar:' lines
+ TODO: include 'Link:' lines, if any
+ TODO: write out citation info in a Zotero?, OpenLibrary?, LaTeX? format
 """
 
 import re
