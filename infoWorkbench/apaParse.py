@@ -20,8 +20,11 @@ def find_apacitations(text):
         return None
 
 def main():
-    # get filename from command-line input
+    # get filename to read from command-line input
     text = ''
+    with open('./2022-NomadCentury-notes.md','r',encoding='utf-8') as file:
+        text = file.read()
+        
     logging.info("citation years found: %s", find_apacitations(text))
     return
 
