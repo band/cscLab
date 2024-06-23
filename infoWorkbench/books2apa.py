@@ -7,25 +7,22 @@ def read_books_from_file(filename):
     books = {}
     with open(filename, 'r') as file:
         for line in file:
-            # Remove leading/trailing whitespace and split the line into key and value
+            # remove leading/trailing whitespace and split the line into key and value
             key, value = line.strip().split(': ', 1)
-
-            # Remove the quotes around the key
             key = key.strip('"')
             if key.isdigit():
-                # Use ast.literal_eval to safely evaluate the string as a Python literal
                 value = ast.literal_eval(value)
-                if isinstance(value, tuple):
+                if isinstance(value, tuple):  # value either tuple or str
                     books[key] = value[0]
                 else:
                     books[key] = value
     return books
 
 def to_apa_citation(title, author, year=None):
-    # Extract the year if it's in parentheses within the title
+    # extract the year if in parentheses within the title
     if title_year_match := re.search(r'\((\d{4})\)', title):
         year = title_year_match.group(1)
-        title = re.sub(r'\s*\(\d{4}\)', '', title)  # Remove year from title
+        title = re.sub(r'\s*\(\d{4}\)', '', title)  # remove year from title
 
     # Split the author name
     last_name, first_name = author.split(', ') if ', ' in author else author.rsplit(' ', 1)
@@ -39,16 +36,18 @@ def to_apa_citation(title, author, year=None):
     return citation
 
 def main():
+    # TODO: read filename from command line
     filename = 'some-books-202406.txt'  # Replace with your actual filename
     books = read_books_from_file(filename)
 
     print("Book Mentions from Calls:")
     for key, value in books.items():
-        # Split the title and author
+        # split title and author
         title, author = value.split("' by ")
         title = title.strip("'")
+#        print(f'Title: {title}; Author: {author}')
     
-        # Generate and print the citation
+        # generate and print the citation
         citation = to_apa_citation(title, author)
         print(f"{key}. {citation}")
 
