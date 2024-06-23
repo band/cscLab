@@ -1,6 +1,25 @@
 #!/usr/bin/env python3
 
+import ast
 import re
+
+def read_books_from_file(filename):
+    books = {}
+    with open(filename, 'r') as file:
+        for line in file:
+            # Remove leading/trailing whitespace and split the line into key and value
+            key, value = line.strip().split(': ', 1)
+
+            # Remove the quotes around the key
+            key = key.strip('"')
+            if key.isdigit():
+                # Use ast.literal_eval to safely evaluate the string as a Python literal
+                value = ast.literal_eval(value)
+                if isinstance(value, tuple):
+                    books[key] = value[0]
+                else:
+                    books[key] = value
+    return books
 
 def to_apa_citation(title, author, year=None):
     # Extract the year if it's in parentheses within the title
@@ -19,18 +38,10 @@ def to_apa_citation(title, author, year=None):
 
     return citation
 
-# The book data
-books = {
-    "1": "'The Alphabet Versus the Goddess: The Conflict Between Word and Image' by Leonard Shlain",
-    "2": "'The Spell of the Sensuous: Perception and Language in a More-Than-Human World' by David Abram",
-    "3": "'The Gift of Fear: Survival Signals That Protect Us from Violence' by Gavin de Becker",
-    "4": "'Becoming Animal: An Earthly Cosmology (2010)' by David Abram",
-    "5": "'Sand Talk: How Indigenous Thinking Can Save the World' by Tyson Yunkaporta",
-    "6": "'Braiding Sweetgrass: Indigenous Wisdom, Scientific Knowledge, and the Teachings of Plants' by Robin Wall Kimmerer",
-    "7": "'The Dawn of Everything: A New History of Humanity' by David Graeber and David Wengrow",
-}
-
 def main():
+    filename = 'some-books-202406.txt'  # Replace with your actual filename
+    books = read_books_from_file(filename)
+
     print("Book Mentions from Calls:")
     for key, value in books.items():
         # Split the title and author
