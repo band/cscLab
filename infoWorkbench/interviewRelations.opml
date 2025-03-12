@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.0">
+  <head>
+    <title>Relationships among people and things mentioned</title>
+  </head>
+  <body>
+    <outline text="Pete and Dave" />
+    <outline text="Pete">
+      <outline text="Charles Blass" />
+      <outline text="Ev Williams" />
+      <outline text="Jason Shellen" />
+      <outline text="Meg Hourihan" />
+      <outline text="David Hodgson" />
+      <outline text="Clay Shirky" />
+      <outline text="Jerry Michalski" />
+      <outline text="Klaus Mager" />
+      <outline text="Matt Mullenweg" />
+      <outline text="Brewster Kahle" />
+      <outline text="Internet Archive" />
+    </outline>
+    <outline text="Dave">
+      <outline text="Pete" />
+      <outline text="Noah Thorp" />
+      <outline text="Clay Shirky" />
+      <outline textătălia="Doc Searls" />
+      <outline text="Dave Winer" />
+      <outline text="Carol Sanford" />
+      <outline text="Brandon Letsinger" />
+      <outline text="Regenerate Cascadia Summit" />
+    </outline>
+    <outline text="Charles Blass">
+      <outline text="Pete" />
+    </outline>
+    <outline text="Ev Williams">
+      <outline text="Pete" />
+      <outline text="Jason Shellen" />
+    </outline>
+    <outline text="Jason Shellen">
+      <outline text="Pete" />
+      <outline text="Ev Williams" />
+    </outline>
+    <outline text="Meg Hourihan">
+      <outline text="Pete" />
+    </outline>
+    <outline text="David Hodgson">
+      <outline text="Dave" />
+      <outline text="Pete" />
+    </outline>
+    <outline text="Noah Thorp">
+      <outline text="Dave" />
+    </outline>
+    <outline text="Clay Shirky">
+      <outline text="Pete" />
+      <outline text="Dave" />
+    </outline>
+    <outline text="Doc Searls">
+      <outline text="Dave" />
+      <outline text="Clay Shirky" />
+    </outline>
+    <outline text="Dave Winer">
+      <outline text="Dave" />
+    </outline>
+    <outline text="Matt Mullenweg">
+      <outline text="Pete" />
+    </outline>
+    <outline text="Brewster Kahle">
+      <outline text="Pete" />
+    </outline>
+    <outline text="Internet Archive">
+      <outline text="Pete" />
+      <outline text="Brewster Kahle" />
+    </outline>
+    <outline text="Jerry Michalski">
+      <outline text="Pete" />
+    </outline>
+    <outline text="Klaus Mager">
+      <outline text="Pete" />
+    </outline>
+    <outline text="Carol Sanford">
+      <outline text="Dave" />
+    </outline>
+    <outline text="Brandon Letsinger">
+      <outline text="Dave" />
+    </outline>
+    <outline text="Regenerate Cascadia Summit">
+      <outline text="Dave" />
+      <outline text="Brandon Letsinger" />
+    </outline>
+  </body>
+</opml>

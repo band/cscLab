@@ -1,0 +1,32 @@
+i asked Claude to identify who talks to whom, and who is referred to by whom. the result:
+Based on the conversation transcript provided, here are the key interactions and references:
+
+1. Pete and Dave are the main participants in this conversation.
+
+2. People mentioned or referred to by Pete and Dave:
+
+- Charles Blass (mentioned by Pete as someone he contacted for an interview)
+- Ev Williams (referred to by Pete in relation to Blogger)
+- Jason Shellen (referred to by Pete as Ev Williams' business manager)
+- Meg Hourihan (mentioned by Pete in relation to Blogger)
+- David Hodgson (mentioned by Dave as someone Pete should talk to)
+- Noah Thorp (mentioned by Dave in relation to CoMakery)
+- Clay Shirky (referred to by both Pete and Dave)
+- Doc Searls (mentioned by Dave in relation to Clay Shirky's talk)
+- Dave Winer (referred to by Dave)
+- Matt Mullenweg (mentioned by Pete in relation to WordPress)
+- Brewster Kahle (mentioned by Pete in relation to Internet Archive)
+- Jerry Michalski (mentioned by Pete)
+- Klaus Mager (mentioned by Pete)
+- Carol Sanford (mentioned by Dave)
+- Brandon Letsinger (mentioned by Dave in relation to Regenerate Cascadia Summit)
+
+3. Organizations or projects mentioned:
+
+- Socialtext (referred to by Pete)
+- Global Regeneration CoLab (mentioned by Dave)
+- Khan Academy (mentioned by Pete)
+- Internet Archive (mentioned by Pete)
+- Linux Foundation (discussed by both Pete and Dave)
+
+The conversation is primarily between Pete and Dave, with them discussing various topics and referring to other individuals and organizations throughout their dialogue.
