@@ -8,4 +8,8 @@
 
 2024-05-23: added an `infoWorkbench` folder to hold information science commons experiments.
 
+-----
+
+A few links:  
+[[2022-NomadCentury-notes.md]]  
 
