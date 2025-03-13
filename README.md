@@ -10,12 +10,4 @@
 
 -----
 
-A few links (or, how do links work?):  
-
-[[2022-NomadCentury-notes.md]]  
-- this does not show a link
-
-- try this?  
-[Nomad Century notes](2022-NomadCentury-notes.md)  
-
 
