@@ -10,6 +10,7 @@
 
 -----
 
-A few links:  
+A few links (or, how do links work?):  
 [[2022-NomadCentury-notes.md]]  
+
 
